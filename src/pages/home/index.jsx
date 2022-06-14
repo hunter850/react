@@ -26,7 +26,7 @@ const Home = () => {
             {a}
             <button onClick={addition}>+100</button>
             <Edit add={setData} />
-            <List dataArray={data} />
+            <List dataArray={data} deleteData={setData}/>
         </div>
     )
 }
