@@ -3,6 +3,7 @@ import React from "react"
 const ClassProps = () => {
     class Clock extends React.Component {
         constructor(props) {
+            //super(props)後才能使用this
             super(props);
             this.state = {date: new Date()};
         }
