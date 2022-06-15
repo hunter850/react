@@ -6,26 +6,22 @@ const ConditionalRender = () => {
 
     const [login, setLogin] = useState(false);
 
-    const logout = () => {
-        setLogin(() => false);
-    }
-
-    const signin = () => {
-        setLogin(() => true);
+    const changeLoginStatus = () => {
+        setLogin(pre => !pre);
     }
 
     if(login) {
         return (
             <div>
                 <UserGreeting />
-                <button onClick={logout}>logout</button>
+                <button onClick={changeLoginStatus}>logout</button>
             </div>
         )
     } else {
         return (
             <div>
                 <GuestGreeting />
-                <button onClick={signin}>login</button>
+                <button onClick={changeLoginStatus}>login</button>
             </div>
         )
     }
