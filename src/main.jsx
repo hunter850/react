@@ -1,11 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 // import Home from './pages/home/index.jsx'
-import ExtractCP from './practice/08.extract_component'
+import InlineIf from './practice/15.inline_if'
 import './index.css'
 
-ReactDOM.createRoot(document.querySelector('#root')).render(
+const root = ReactDOM.createRoot(document.querySelector('#root'))
+
+root.render(
     <React.StrictMode>
-        <ExtractCP />
+        <InlineIf />
     </React.StrictMode>
 )
