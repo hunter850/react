@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 
-const textareaTag = () => {
+const TextareaTag = () => {
 
     const [inputValue, setInputValue] = useState("Please write an essay about your favorite DOM element.");
     
@@ -27,4 +27,4 @@ const textareaTag = () => {
     return el;
 }
 
-export default textareaTag
+export default TextareaTag
