@@ -1,6 +1,3 @@
-import { useState } from "react"
-import BoilingVerdict from "./25.BoilingVerdict"
-
 const TemperatureInput = ({ scale, temp, setTemp, setAnotherTemp }) => {
 
     const scaleName = {

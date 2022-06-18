@@ -4,23 +4,6 @@ import BoilingVerdict from "./components/25.BoilingVerdict"
 
 const LiftState = () => {
 
-    const toCelsius = (fahrenheit) => {
-        return (fahrenheit - 32) * 5 / 9;
-    }
-    const toFahrenheit = (celsius) => {
-        return (celsius * 9 / 5) + 32;
-    }
-
-    const tempConvert = (temperature, convert) => {
-        const input = parseFloat(temperature);
-        if(Number.isNaN(input)) {
-            return "";
-        }
-        const output = convert(temperature);
-        const rounded = Math.round(output * 1000) / 1000;
-        return rounded.toString();
-    }
-
     const [celsius, setCelsius] = useState("");
     const [fahrenheit, setFahrenheit] = useState("");
 
