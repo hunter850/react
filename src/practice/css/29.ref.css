@@ -1,0 +1,22 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    height: 600vh;
+}
+
+.box {
+    width: 200px;
+    height: 200px;
+    background-color: #faf;
+}
+
+.box2 {
+    width: 200px;
+    height: 200px;
+    margin-top: 200vh;
+    background-color: #afa;
+}
