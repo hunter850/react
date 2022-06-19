@@ -1,11 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 // import Home from './pages/home/index.jsx'
-import TryRef from './practice/29.ref'
+import PassRef from './practice/30.pass_ref'
 import './index.css'
 
 const root = ReactDOM.createRoot(document.querySelector('#root'))
 
 root.render(
-        <TryRef />
+        <PassRef />
 )
