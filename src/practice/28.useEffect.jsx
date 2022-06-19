@@ -1,18 +1,40 @@
 import { useState, useEffect } from "react"
+import { v4 } from "uuid"
+import "./css/28.useEffect.css"
+import ClickButton from "./components/28.click_button"
 
 const TryUseEffect = () => {
 
-    const [count, setCount] = useState(0);
+    const displayStyle = {
+        display: "none"
+    }
+
+    const [rawData, setRawData] = useState([]);
+    const [displayStatus, setDisplayStatus] = useState(displayStyle)
 
     useEffect(() => {
-        document.title = `You click ${count} times`;
-        console.log(count);
-    });
+        fetch("https://picsum.photos/v2/list?page=2&limit=10")
+            .then(data => data.json())
+            .then(data => {
+                console.log("lorem picsum: ", data);
+                setRawData(() => data);
+                setDisplayStatus(pre => ({...pre, display: "flex"}));
+            })
+    }, [])
 
     const el = (
         <div>
-            <p>You click {count} times</p> 
-            <button onClick={() => setCount(count + 1)}>Click to add</button>
+            <ClickButton />
+            <div className="img_container" style={displayStatus}>
+                {rawData.map(item => (
+                    <div className="card" key={v4()}>
+                        <div className="img_wrap">
+                            <img src={item.download_url} />
+                        </div>
+                        <p>author: {item.author}</p>
+                    </div>
+                ))}
+            </div>
         </div>
     )
 
