@@ -19,9 +19,7 @@ const TransitionTodolist = () => {
     }
 
     const deleteHandler = (id) => {
-        setNameArray(pre => (
-            pre.filter(item => item.id !== id)
-        ))
+        setNameArray(pre => pre.filter(item => item.id !== id));
     }
 
     //component={null}可以讓TransitionGroup預設的div wrap轉為無wrap
