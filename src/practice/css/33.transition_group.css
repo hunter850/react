@@ -1,0 +1,32 @@
+.slide-enter {
+    transform: translateY(-30px);
+    opacity: 0;
+}
+
+.slide-enter-active {
+    transform: translateY(0px);
+    opacity: 1;
+    transition: transform 1s ease, opacity 1s ease;
+}
+
+.slide-enter-done {
+    transform: translateY(0px);
+    opacity: 1;
+}
+
+.slide-exit {
+    transform: translateY(0px);
+    opacity: 1;
+}
+
+.slide-exit-active {
+    transform: translateY(30px);
+    opacity: 0;
+    transition: transform 1s ease, opacity 1s ease;
+}
+
+.slide-exit-done {
+    transform: translateY(30px);
+    opacity: 0;
+    display: none;
+}
