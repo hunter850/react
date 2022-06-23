@@ -8,6 +8,7 @@ const Carousel = () => {
 
     const [imgArray, setImgArray] = useState([]);
     const [active, setActive] = useState(0);
+    const [isRight, setIsRight] = useState(true);
 
     useEffect(() => {
         fetch("https://picsum.photos/v2/list?page=2&limit=5")
@@ -18,7 +19,12 @@ const Carousel = () => {
     }, [])
 
     const nextHandler = () => {
+        setIsRight(true);
         setActive(pre => ((pre + 1 + imgArray.length) % imgArray.length));
+    }
+    const prevHandler = () => {
+        setIsRight(false);
+        setActive(pre => ((pre - 1 + imgArray.length) % imgArray.length));
     }
 
     const el = (
@@ -27,13 +33,14 @@ const Carousel = () => {
                 <TransitionGroup component={null}>
                     {imgArray.map(item => (
                         <Fragment key={item.id}>
-                            <CSSTransition in={item.index === active} timeout={500} classNames="slide">
+                            <CSSTransition in={item.index === active} timeout={500} classNames={isRight ? "slide" : "left"}>
                                 <ImgWrap imgObj={item} />
                             </CSSTransition>
                         </Fragment>
                     ))}
                 </TransitionGroup>
             </ul>
+            <button onClick={prevHandler}>next</button>
             <button onClick={nextHandler}>next</button>
         </Fragment>
     )
