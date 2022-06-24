@@ -1,35 +1,33 @@
-.slide {
-    display: none;
-}
-
-.slide-enter {
+.right-enter {
     display: block;
     transform: translateX(100%);
 }
 
-.slide-enter-active {
+.right-enter-active {
     position: absolute;
     top: 0px;
     transform: translateX(0%);
     transition: transform .5s ease;
 }
 
-.slide-enter-done {
+.right-enter-done {
+    position: absolute;
+    top: 0px;
     transform: translateX(0%);
 }
 
-.slide-exit {
+.right-exit {
     transform: translateX(0%);
 }
 
-.slide-exit-active {
+.right-exit-active {
     position: absolute;
     top: 0px;
     transform: translateX(-100%);
     transition: transform .5s ease;
 }
 
-.slide-exit-done {
+.right-exit-done {
     transform: translateX(-100%);
     display: none;
 }
@@ -47,6 +45,8 @@
 }
 
 .left-enter-done {
+    position: absolute;
+    top: 0px;
     transform: translateX(0%);
 }
 
