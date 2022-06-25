@@ -14,6 +14,7 @@ const TryUseMemo = () => {
 
     //useMemo會把number的值存在記憶體 每次funciton component更新都會檢查number的值 不變就不執行useMemo裡的return 變了才執行
     //在這個範例 使用input改變數字會導致delay 但使用toggle button就會因為useMemo的number沒變化 所以theme的變化沒有delay
+    //useMemo會讓doubleNumber接到的是return的值 useCallback則是useCallback裡的整個function
     const doubleNumber = useMemo(() => {
         return slowFunction(number);
     }, [number]);
