@@ -1,8 +1,8 @@
-import AdvanceUseContext from "./practice/39.advanceUseContext";
+import TryUseMemo from "./practice/40.TyeUseMemo";
 
 const App = () => {
     const el = (
-        <AdvanceUseContext />
+        <TryUseMemo />
     )
 
     return el;
