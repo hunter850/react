@@ -1,8 +1,7 @@
-import TryUseMemo from "./practice/40.TyeUseMemo";
-
+import TryUseCallback from "./practice/41.TryUseCallback";
 const App = () => {
     const el = (
-        <TryUseMemo />
+        <TryUseCallback />
     )
 
     return el;
