@@ -1,7 +1,7 @@
-import TryUseCallback from "./practice/41.TryUseCallback";
+import TryUseTransition from "./practice/42.TryUseTransition";
 const App = () => {
     const el = (
-        <TryUseCallback />
+        <TryUseTransition />
     )
 
     return el;
