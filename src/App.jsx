@@ -1,8 +1,8 @@
-import TryUseContext from "./practice/38.useContext";
+import AdvanceUseContext from "./practice/39.advanceUseContext";
 
 const App = () => {
     const el = (
-        <TryUseContext />
+        <AdvanceUseContext />
     )
 
     return el;
