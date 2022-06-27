@@ -1,7 +1,7 @@
-import PracticeUseMemo from "./practice/44.PracticeUseMemo";
+import YourHook from "./practice/43.YourHook";
 const App = () => {
     const el = (
-        <PracticeUseMemo />
+        <YourHook />
     )
 
     return el;
