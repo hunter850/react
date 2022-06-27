@@ -1,7 +1,7 @@
-import TryUseTransition from "./practice/42.TryUseTransition";
+import YourHook from "./practice/43.YourHook";
 const App = () => {
     const el = (
-        <TryUseTransition />
+        <YourHook />
     )
 
     return el;
