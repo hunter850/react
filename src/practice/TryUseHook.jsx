@@ -1,14 +1,14 @@
 import { Fragment } from "react"
-import useToggleScroll from "./hooks/useToggleScroll";
+import useScrollTo from "./hooks/useScrollTo";
 
 const TryUseHook = () => {
 
-    const toggleScroll = useToggleScroll();
+    const scroll = useScrollTo();
 
     const el = (
         <Fragment>
             <div style={{height: "500vh"}}></div>
-            <button style={{position: "fixed", left: "20px", bottom: "20px"}} onClick={toggleScroll}>click to hide</button>
+            <button style={{position: "fixed", left: "20px", bottom: "20px"}} onClick={() => scroll(0)}>click to hide</button>
         </Fragment>
     )
 

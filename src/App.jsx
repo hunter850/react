@@ -1,7 +1,7 @@
-import Previous from "./practice/45.Previous";
+import TryUseHook from "./practice/tryUseHook";
 const App = () => {
     const el = (
-        <Previous />
+        <TryUseHook />
     )
 
     return el;
