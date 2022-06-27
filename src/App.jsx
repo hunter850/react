@@ -1,7 +1,7 @@
-import YourHook from "./practice/43.YourHook";
+import Previous from "./practice/45.Previous";
 const App = () => {
     const el = (
-        <YourHook />
+        <Previous />
     )
 
     return el;
