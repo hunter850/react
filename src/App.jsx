@@ -1,7 +1,7 @@
-import Try from "./practice/Try";
+import Previous from "./practice/45.Previous";
 const App = () => {
     const el = (
-        <Try />
+        <Previous />
     )
 
     return el;
