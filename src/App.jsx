@@ -1,7 +1,7 @@
-import TryUseHook from "./practice/tryUseHook";
+import Try from "./practice/Try";
 const App = () => {
     const el = (
-        <TryUseHook />
+        <Try />
     )
 
     return el;
