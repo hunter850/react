@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-const Modal = ({ children, isOpen, setIsOpen }) => {
+const Modal = ({ children, isOpen, setIsOpen, bordPadding = "24px 36px" }) => {
 
     const bgStyle = {
         position: "fixed",
@@ -18,7 +18,7 @@ const Modal = ({ children, isOpen, setIsOpen }) => {
 
     const bordStyle = {
         backgroundColor: "#fff",
-        padding: "24px 36px",
+        padding: bordPadding,
         borderRadius: "10px",
         position: "relative",
         transform: "translateY(-30px)",
