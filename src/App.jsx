@@ -1,7 +1,7 @@
-import Previous from "./practice/45.Previous";
+import TryModal from "./practice/46.TryModal";
 const App = () => {
     const el = (
-        <Previous />
+        <TryModal />
     )
 
     return el;
