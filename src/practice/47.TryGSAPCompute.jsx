@@ -5,6 +5,7 @@ const TryGSAPCompute = () => {
 
     const [inputValue, setInputValue] = useState(0);
     const [content, setContent] = useState({ price: 0 });
+    const [boxStyle, setBoxStyle] = useState({width: "200px", height: "200px", backgroundColor: "#faf"})
     const compute = useGSAPCompute();
 
     const inputHandler = (event) => {
@@ -19,6 +20,10 @@ const TryGSAPCompute = () => {
         <Fragment>
             <input type="number" value={inputValue} onInput={inputHandler} />
             <h1>{parseInt(content.price)}</h1>
+            <h1>{content.price}</h1>
+            <button onClick={() => compute({width: "400px", height: "400px", backgroundColor: "#000"}, boxStyle, setBoxStyle, 1)}>change box</button>
+            <button onClick={() => compute({width: "200px", height: "200px", backgroundColor: "#faf"}, boxStyle, setBoxStyle, 1)}>go back box</button>
+            <div style={boxStyle}></div>
         </Fragment>
     )
 
