@@ -26,7 +26,9 @@ const useGSAPCompute = () => {
             set(() => ({...tempObj}));
             if(progress < time * 1000) {
                 window.requestAnimationFrame(step);
+                return;
             }
+            set(() => ({...toState}));
         }
         window.requestAnimationFrame(step);
     }
