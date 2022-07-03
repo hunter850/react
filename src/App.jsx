@@ -1,7 +1,7 @@
-import TryGSAPCompute from "./practice/47.TryGSAPCompute";
+import ExImperativeHandle from "./practice/49.ExImperativeHandle";
 const App = () => {
     const el = (
-        <TryGSAPCompute />
+        <ExImperativeHandle />
     )
 
     return el;
