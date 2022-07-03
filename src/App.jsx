@@ -1,7 +1,7 @@
-import ExImperativeHandle from "./practice/49.ExImperativeHandle";
+import TryUseTimeout from "./practice/50.TryUseTimeout";
 const App = () => {
     const el = (
-        <ExImperativeHandle />
+        <TryUseTimeout />
     )
 
     return el;
