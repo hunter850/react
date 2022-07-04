@@ -39,6 +39,8 @@ const TryUseTimeout = () => {
             <button onClick={() => cArray.cpop()}>pop</button>
             <button onClick={() => cArray.cunshift(99)}>unshift 99</button>
             <button onClick={() => cArray.cshift()}>shift</button>
+            <button onClick={() => cArray.csplice(1, 2, 10, 11, 12)}>splice(1,2,10,11,12)</button>
+            <button onClick={() => cArray.cfilter(item => item <= 10)}>fiter</button>
         </Fragment>
     )
 

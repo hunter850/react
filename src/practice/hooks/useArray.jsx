@@ -37,6 +37,26 @@ const useArray = (defaultValue) => {
         },
         clength: function() {
             return this.value.length;
+        },
+        csplice: function(start, deleteCount, ...items) {
+            if(items === []) {
+                setArray(pre => {
+                    const tempArray = [...pre];
+                    tempArray.splice(start, deleteCount);
+                    return tempArray;
+                })
+            } else {
+                setArray(pre => {
+                    const tempArray = [...pre];
+                    tempArray.splice(start, deleteCount, ...items);
+                    return tempArray;
+                })
+            }
+            return this;
+        },
+        cfilter: function(callback) {
+            setArray(pre => (pre.filter(callback)));
+            return this;
         }
     }
     return obj;
