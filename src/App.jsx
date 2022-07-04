@@ -1,7 +1,7 @@
-import TryUseTimeout from "./practice/50.TryUseTimeout";
+import TryArray from "./practice/TryArray";
 const App = () => {
     const el = (
-        <TryUseTimeout />
+        <TryArray />
     )
 
     return el;

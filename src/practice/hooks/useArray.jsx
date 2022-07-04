@@ -54,9 +54,8 @@ const useArray = (defaultValue) => {
             }
             return this;
         },
-        cfilter: function(callback) {
-            setArray(pre => (pre.filter(callback)));
-            return this;
+        cmap: function(callback) {
+            return this.value.map(callback);
         },
         creverse: function() {
             setArray(pre => ([...pre].reverse()));
