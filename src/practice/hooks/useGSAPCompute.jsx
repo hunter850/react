@@ -28,7 +28,7 @@ const useGSAPCompute = () => {
                 window.requestAnimationFrame(step);
                 return;
             }
-            set(() => ({...toState}));
+            set(() => ({...fromState,...toState}));
         }
         window.requestAnimationFrame(step);
     }
