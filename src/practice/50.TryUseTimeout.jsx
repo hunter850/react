@@ -41,6 +41,8 @@ const TryUseTimeout = () => {
             <button onClick={() => cArray.cshift()}>shift</button>
             <button onClick={() => cArray.csplice(1, 2, 10, 11, 12)}>splice(1,2,10,11,12)</button>
             <button onClick={() => cArray.cfilter(item => item <= 10)}>fiter</button>
+            <button onClick={() => cArray.creverse()}>reverse</button>
+            <button onClick={() => cArray.cclear()}>clear</button>
         </Fragment>
     )
 

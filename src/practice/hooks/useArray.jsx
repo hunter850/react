@@ -61,6 +61,10 @@ const useArray = (defaultValue) => {
         creverse: function() {
             setArray(pre => ([...pre].reverse()));
             return this;
+        },
+        cclear: function() {
+            setArray([]);
+            return this;
         }
     }
     return obj;
