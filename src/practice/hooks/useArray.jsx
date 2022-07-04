@@ -39,7 +39,7 @@ const useArray = (defaultValue) => {
             return this.value.length;
         },
         csplice: function(start, deleteCount, ...items) {
-            if(items === []) {
+            if(items.length === 0) {
                 setArray(pre => {
                     const tempArray = [...pre];
                     tempArray.splice(start, deleteCount);
