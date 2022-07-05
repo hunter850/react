@@ -1,7 +1,7 @@
-import TryArray from "./practice/51.TryArray";
+import CreditcarContainer from "./practice/CreditcardContainter";
 const App = () => {
     const el = (
-        <TryArray />
+        <CreditcarContainer />
     )
 
     return el;
