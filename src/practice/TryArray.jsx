@@ -18,6 +18,7 @@ const TryArray = () => {
             <button onClick={() => arrayObj.cpop()}>pop</button>
             <button onClick={() => arrayObj.cunshift(10)}>unshift(10)</button>
             <button onClick={() => arrayObj.cshift()}>shift</button>
+            <button onClick={() => arrayObj.creverse()}>reverse</button>
             <br />
             <span>value.map</span>
             {arrayObj.value.map(item => (<h1 key={v4()}>{item}</h1>))}
@@ -30,9 +31,6 @@ const TryArray = () => {
             <br /><hr /><br />
             <span>value.cfilter.map</span>
             {arrayObj.cfilter(item => item <=5).map(item => (<h1 key={v4()}>{item}</h1>))}
-            <br /><hr /><br />
-            <span>value.cselect.map</span>
-            {arrayObj.cselect(item => item <= 5).cmap(item => (<h1 key={v4()}>{item}</h1>))}
         </Fragment>
     )
 

@@ -71,15 +71,6 @@ const useArray = (defaultValue) => {
         },
         cfilter: function(callback) {
             return this.value.filter(callback);
-        },
-        cselect: function(callback) {
-            const tempArray = [...this.value];
-            console.log("this.value: ",this.value);
-            console.log("tempArray: ",tempArray);
-            const output = tempArray.filter(callback);
-            console.log("output: ", output);
-            setArray(() => output);
-            return this;
         }
     }
     return obj;
