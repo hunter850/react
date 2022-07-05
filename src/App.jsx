@@ -1,4 +1,4 @@
-import TryArray from "./practice/TryArray";
+import TryArray from "./practice/51.TryArray";
 const App = () => {
     const el = (
         <TryArray />
