@@ -3,7 +3,7 @@ import { Fragment } from "react";
 const CardValidDate = () => {
     const el = (
         <Fragment>
-            <span>MM / YY</span>
+            <span style={{fontSize: "20px"}}>MM / YY</span>
         </Fragment>
     )
 
