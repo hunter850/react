@@ -10,6 +10,9 @@ const Creditcard = () => {
 
     const [cardNumber, setCardNumber] = useState("");
     const [cardName, setCardName] = useState("");
+    const [cardMonth, setCardMonth] = useState("");
+    const [cardYear, setCardYear] = useState("");
+    const [cardCvv, setCardCvv] = useState("");
 
     const el = (
         <Fragment>
@@ -27,6 +30,12 @@ const Creditcard = () => {
                     setCardNumber={setCardNumber}
                     cardName={cardName}
                     setCardName={setCardName}
+                    cardMonth={cardMonth}
+                    setCardMonth={setCardMonth}
+                    cardYear={cardYear}
+                    setCardYear={setCardYear}
+                    cardCvv={cardCvv}
+                    setCardCvv={setCardCvv}
                 />
             </div>
         </Fragment>
