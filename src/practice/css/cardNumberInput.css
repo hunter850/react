@@ -4,7 +4,9 @@
     margin: 0px;
     list-style-type: none;
 }
-
+.card_container, .card_container * {
+    user-select: none;
+}
 .card_number {
     position: relative;
     width: 340.48px;
@@ -27,15 +29,23 @@
     height: 32px;
 }
 .card_name span {
-    font-size: 24px;
+    font-size: 20px;
     height: 32px;
     padding: 0px;
     color: #333;
 }
+.space_width {
+    min-width: 9px;
+}
+
 .card_name_split {
     height: 32px;
     display: flex;
     align-items: center;
+}
+.hide_text {
+    overflow: hidden;
+    position: relative;
 }
 
 .text_span {
