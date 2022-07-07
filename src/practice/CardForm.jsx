@@ -34,7 +34,7 @@ const CardForm = ({ cardNumber, setCardNumber, cardName, setCardName, cardMonth,
                         autoComplete="off"
                     />
                     <div className="form_bottom" style={{width: "100%", display: "flex"}}>
-                        <div className="card_valid" style={{ width: "70%", display: "flex", justifyContent: "center", alignItems: "center", marginBottom: "30px" }}>
+                        <div className="card_valid" style={{ width: "70%", display: "flex", justifyContent: "center", alignItems: "center", marginBottom: "30px", paddingRight: "30px" }}>
                             <div className="card_date" style={{ width: "66.66%", display: "flex", paddingRight: "10px" }}>
                                 <div className="card_month" style={{ width: "50%", paddingRight: "10px" }}>
                                     <label htmlFor="credit_card_month" style={{ width: "100%", fontSize: "20px", whiteSpace: "nowrap" }}>Valid Date</label>
@@ -72,7 +72,7 @@ const CardForm = ({ cardNumber, setCardNumber, cardName, setCardName, cardMonth,
                                     </select>
                                 </div>
                             </div>
-                            <div className="card_cvv" style={{ width: "33.33%", paddingRight: "30px" }}>
+                            <div className="card_cvv" style={{ width: "33.33%" }}>
                                 <label htmlFor="cvv" style={{ width: "100%", fontSize: "20px" }}>cvv</label>
                                 <InputMask
                                     mask="9999"
@@ -84,7 +84,7 @@ const CardForm = ({ cardNumber, setCardNumber, cardName, setCardName, cardMonth,
                                 />
                             </div>
                         </div>
-                        <button style={{ width: "30%", height: "36px", marginTop: "26.4px", border: "none", outline: "none", backgroundColor: "#253945", borderRadius: "3px", color: "#fff" }}>確認送出</button>
+                        <button style={{ width: "30%", height: "36px", marginTop: "26.4px", border: "none", outline: "none", backgroundColor: "#253945", borderRadius: "3px", color: "#fff", cursor: "pointer" }}>確認送出</button>
                     </div>
                 </div>
             </form>
