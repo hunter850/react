@@ -1,10 +1,12 @@
-import { Fragment } from "react";
+import "./css/cardNumberInput.css"
 
-const CardValidDate = () => {
+const CardValidDate = ({cardMonth, cardYear}) => {
     const el = (
-        <Fragment>
-            <span style={{fontSize: "20px"}}>MM / YY</span>
-        </Fragment>
+        <div>
+            <span style={{fontSize: "20px"}}>MM</span>
+            <span style={{fontSize: "20px"}}> / </span>
+            <span style={{fontSize: "20px"}}>YY</span>
+        </div>
     )
 
     return el;
