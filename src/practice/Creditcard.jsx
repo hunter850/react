@@ -21,7 +21,7 @@ const Creditcard = () => {
                 <CardNumberInput cardNumber={cardNumber} />
                 <div className="card_bottom" style={{display: "flex", justifyContent: "space-between", width: "340.47px", height: "32px"}}>
                     <CardHolder cardName={cardName} />
-                    <CardValidDate />
+                    <CardValidDate cardMonth={cardMonth} cardYear={cardYear} />
                 </div>
             </div>
             <div className="form_containter">
