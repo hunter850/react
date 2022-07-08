@@ -5,7 +5,7 @@ const useIndexArray = (num, ...items) => {
     for(let i = 0; i < num; i++) {
         const tempObj = {index: i};
         items.forEach((item, index) => {
-            tempObj[`content${index}`] = item;
+            tempObj[`content${index}`] = item + "" + i;
         })
         tempArray.push(tempObj);
     }
