@@ -27,6 +27,16 @@
 }
 .card_name {
     height: 32px;
+    position: relative;
+}
+.card_name::before {
+    content: "持卡人姓名";
+    display: inline-block;
+    position: absolute;
+    left: 0px;
+    bottom: 32px;
+    font-size: 12px;
+    white-space: nowrap;
 }
 .card_name span {
     font-size: 20px;
@@ -50,6 +60,18 @@
 
 .text_span {
     display: none;
+}
+.card_valid_date {
+    position: relative;
+}
+.card_valid_date::before {
+    content: "Valid Date";
+    display: inline-block;
+    position: absolute;
+    right: 0px;
+    bottom: 32px;
+    font-size: 12px;
+    white-space: nowrap;
 }
 
 .slide-enter {
