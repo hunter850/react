@@ -3,22 +3,30 @@ import CardUpperImage from "./CardUpperImage";
 import CardNumberInput from "./CardNumberInput";
 import CardHolder from "./CardHolder";
 import CardValidDate from "./CardValidDate";
+import CardBlackBar from "./CardBlacBar";
+import CardWhiteBar from "./CardWhiteBar";
+import CardType from "./CardType";
 import CardForm from "./CardForm";
 
 function Creditcard() {
-    const [cardNumber, setCardNumber] = useState("");
-    const [cardName, setCardName] = useState("");
-    const [cardMonth, setCardMonth] = useState("");
-    const [cardYear, setCardYear] = useState("");
-    const [cardCvv, setCardCvv] = useState("");
-
-    const cardContainterStyle = {
+    const cardFlipStyle = {
         width: "433px",
-        aspectRatio: "16 / 9",
+        height: "243.5625px",
         borderRadius: "10px",
         margin: "auto",
-        backgroundColor: "skyblue",
         position: "relative",
+        transformStyle: "preserve-3d",
+        transformOrigin: "center",
+        transition: "all 1s ease-out",
+    };
+    const cardContainterStyle = {
+        width: "433px",
+        height: "243.5625px",
+        borderRadius: "10px",
+        backgroundColor: "skyblue",
+        position: "absolute",
+        top: "0px",
+        left: "0px",
         zIndex: "1",
         display: "flex",
         flexDirection: "column",
@@ -26,6 +34,9 @@ function Creditcard() {
         alignItems: "center",
         padding: "25px 15px",
         boxShadow: "4px 4px 16px 0px rgba(0,0,0,.25)",
+        transformStyle: "preserve-3d",
+        transformOrigin: "center",
+        backfaceVisibility: "hidden"
     };
     const cardBottomStyle = {
         display: "flex",
@@ -33,15 +44,59 @@ function Creditcard() {
         width: "340.47px",
         height: "32px",
     };
+    const cardBackStyle = {
+        transform: "rotateY(180deg)"
+    }
+    const cvvWrapStyle = {
+        width: "100%",
+        height: "100%",
+        padding: "10px 0px"
+    }
+    const cvvText = {
+        fontSize: "12px",
+        textAlign: "end",
+        marginBottom: "5px",
+        paddingRight: "10px"
+    }
+
+    const [cardNumber, setCardNumber] = useState("");
+    const [cardName, setCardName] = useState("");
+    const [cardMonth, setCardMonth] = useState("");
+    const [cardYear, setCardYear] = useState("");
+    const [cardCvv, setCardCvv] = useState("");
+    const [flipStyle, setFlipStyle] = useState(cardFlipStyle);
+
+    const flipHandler = () => {
+        setFlipStyle(pre => ({...pre, transform: "rotateY(180deg)"}))
+    }
+    const focusHandler = () => {
+        setFlipStyle(pre => ({...pre, transform: "rotateY(180deg)"}))
+    }
+    const blurHandler = () => {
+        setFlipStyle(pre => ({...pre, transform: "rotateY(0deg)"}))
+    }
 
     return (
         <Fragment>
-            <div className="card_container" style={cardContainterStyle}>
-                <CardUpperImage />
-                <CardNumberInput cardNumber={cardNumber} />
-                <div className="card_bottom" style={cardBottomStyle}>
-                    <CardHolder cardName={cardName} />
-                    <CardValidDate cardMonth={cardMonth} cardYear={cardYear} />
+            <div className="card_flip_wrap" style={flipStyle} onClick={flipHandler}>
+                <div className="card_container" style={cardContainterStyle}>
+                    <CardUpperImage cardNumber={cardNumber} />
+                    <CardNumberInput cardNumber={cardNumber} />
+                    <div className="card_bottom" style={cardBottomStyle}>
+                        <CardHolder cardName={cardName} />
+                        <CardValidDate
+                            cardMonth={cardMonth}
+                            cardYear={cardYear}
+                        />
+                    </div>
+                </div>
+                <div className="card_container" style={{...cardContainterStyle, ...cardBackStyle}}>
+                    <CardBlackBar />
+                    <div style={cvvWrapStyle}>
+                        <p style={cvvText}>CVV</p>
+                        <CardWhiteBar cardCvv={cardCvv} />
+                        <CardType cardNumber={cardNumber} />
+                    </div>
                 </div>
             </div>
             <div className="form_containter">
@@ -56,6 +111,8 @@ function Creditcard() {
                     setCardYear={setCardYear}
                     cardCvv={cardCvv}
                     setCardCvv={setCardCvv}
+                    focusHandler={focusHandler}
+                    blurHandler={blurHandler}
                 />
             </div>
         </Fragment>
