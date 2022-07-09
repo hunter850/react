@@ -1,9 +1,9 @@
-import { Fragment, useState, useEffect, useRef, useMemo } from "react"
+import { Fragment, useState, useEffect, useRef, useMemo } from "react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import useIndexArray from "./hooks/useIndexArray";
-import "./css/cardNumberInput.css"
+import "./css/cardNumberInput.css";
 
-const CardHolder = ({ cardName }) => {
+function CardHolder({ cardName }) {
 
     const cardMask = useIndexArray(100);
     const [tempArray, setTempArray] = useState([]);
@@ -38,7 +38,7 @@ const CardHolder = ({ cardName }) => {
         }
     }, [cardName])
 
-    const el = (
+    return (
         <Fragment>
             <div className="card_name" style={{height: "32px", display: "flex"}} ref={nameRef}>
                 <TransitionGroup className={`card_name_split ${textHide ? "hide_text" : ""}`} style={{maxWidth: `${contentWidth}px`}}>
@@ -54,8 +54,6 @@ const CardHolder = ({ cardName }) => {
             </div>
         </Fragment>
     )
-
-    return el;
 }
 
-export default CardHolder
+export default CardHolder;

@@ -1,8 +1,8 @@
 import { Fragment } from "react"
 import InputMask from "react-input-mask"
 
-const CardForm = ({ cardNumber, setCardNumber, cardName, setCardName, cardMonth, setCardMonth, cardYear, setCardYear, cardCvv, setCardCvv }) => {
-
+function CardForm(props) {
+    const { cardNumber, setCardNumber, cardName, setCardName, cardMonth, setCardMonth, cardYear, setCardYear, cardCvv, setCardCvv } = props;
     // const handleInput = ({ target: { value } }) => setCardNumber(value.trim());
     const handleNumberInput = (event) => { setCardNumber(event.target.value.trim()) }
     const handleNameInput = (event) => { if (event.target.value.length < 100) setCardName(event.target.value) }
@@ -11,7 +11,7 @@ const CardForm = ({ cardNumber, setCardNumber, cardName, setCardName, cardMonth,
     const cvvHandler = (event) => { setCardCvv(event.target.value) }
     const submitHandler = (event) => { event.preventDefault(); }
 
-    const el = (
+    return (
         <Fragment>
             <form onSubmit={submitHandler} style={{ margin: "-50px" }}>
                 <div style={{ padding: "80px 26px 0px", width: "520px", margin: "auto", border: "1px solid black", borderRadius: "10px", backgroundColor: "#fff" }}>
@@ -90,8 +90,6 @@ const CardForm = ({ cardNumber, setCardNumber, cardName, setCardName, cardMonth,
             </form>
         </Fragment>
     )
-
-    return el;
 }
 
 export default CardForm

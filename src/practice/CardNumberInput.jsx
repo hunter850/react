@@ -1,34 +1,24 @@
-import { Fragment, useState, useEffect } from "react"
+import { Fragment, useState, useEffect, useMemo } from "react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
+import useIndexArray from "./hooks/useIndexArray";
 
 import "./css/cardNumberInput.css"
 
-const CardNumberInput = ({ cardNumber }) => {
-
-    const [cardMask, setCardMask] = useState([
-        { content: "#", index: 0 },
-        { content: "#", index: 1 },
-        { content: "#", index: 2 },
-        { content: "#", index: 3 },
-        { content: "#", index: 4 },
-        { content: "#", index: 5 },
-        { content: "#", index: 6 },
-        { content: "#", index: 7 },
-        { content: "#", index: 8 },
-        { content: "#", index: 9 },
-        { content: "#", index: 10 },
-        { content: "#", index: 11 },
-        { content: "#", index: 12 },
-        { content: "#", index: 13 },
-        { content: "#", index: 14 },
-        { content: "#", index: 15 },
-    ])
-
+function CardNumberInput({ cardNumber }) {
+    const fakeArray = useIndexArray(16);
+    const cardMask = useMemo(() => {
+        const tempArray = JSON.parse(JSON.stringify(fakeArray));
+        for(let i = 0; i < tempArray.length; i++) {
+            tempArray[i].content = "#";
+        }
+        return tempArray;
+    }, [fakeArray]);
+    
     const [tempArray, setTempArray] = useState([]);
 
     useEffect(() => {
         setTempArray(pre => {
-            pre.splice(0, cardNumber.split("").length, ...cardNumber.split(""));
+            pre.splice(0, cardNumber.length, ...cardNumber.split(""));
             return [...pre];
         });
     }, [cardNumber]);
@@ -40,7 +30,12 @@ const CardNumberInput = ({ cardNumber }) => {
                     {cardMask.map(item => (
                         <Fragment key={item.index}>
                             <CSSTransition in={item.index < cardNumber.split("").length} timeout={500} classNames="text_span slide">
-                                <span className="text_span">{cardNumber.split("")[item.index] === undefined ? tempArray[item.index] : cardNumber.split("")[item.index]}</span>
+                                <span className="text_span">
+                                    {cardNumber.split("")[item.index] === undefined ?
+                                    tempArray[item.index] :
+                                    cardNumber.split("")[item.index]
+                                    }
+                                </span>
                             </CSSTransition>
                         </Fragment>
                     ))}
@@ -59,4 +54,4 @@ const CardNumberInput = ({ cardNumber }) => {
     );
 }
 
-export default CardNumberInput
+export default CardNumberInput;
