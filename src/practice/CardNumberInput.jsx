@@ -1,11 +1,22 @@
 import { Fragment, useState, useEffect, useMemo } from "react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import useIndexArray from "./hooks/useIndexArray";
+import useLog from "./hooks/useLog"
 
 import "./css/cardNumberInput.css"
 
 function CardNumberInput({ cardNumber }) {
-    const fakeArray = useIndexArray(16);
+    const isShort = useMemo(() => {
+        return (cardNumber[0] === "3" && (cardNumber[1] === "4" || cardNumber[1] === "7"));
+    }, [cardNumber]);
+    const maxLength = useMemo(() => {
+        if(isShort) {
+            return 15;
+        } else {
+            return 16;
+        }
+    }, [isShort]);
+    const fakeArray = useIndexArray(maxLength);
     const cardMask = useMemo(() => {
         const tempArray = JSON.parse(JSON.stringify(fakeArray));
         for(let i = 0; i < tempArray.length; i++) {
@@ -13,7 +24,6 @@ function CardNumberInput({ cardNumber }) {
         }
         return tempArray;
     }, [fakeArray]);
-    
     const [tempArray, setTempArray] = useState([]);
 
     useEffect(() => {
@@ -29,7 +39,7 @@ function CardNumberInput({ cardNumber }) {
                 <TransitionGroup>
                     {cardMask.map(item => (
                         <Fragment key={item.index}>
-                            <CSSTransition in={item.index < cardNumber.split("").length} timeout={500} classNames="text_span slide">
+                            <CSSTransition in={item.index < cardNumber.length} timeout={500} classNames="text_span slide">
                                 <span className="text_span">
                                     {cardNumber.split("")[item.index] === undefined ?
                                     tempArray[item.index] :
@@ -43,7 +53,7 @@ function CardNumberInput({ cardNumber }) {
                 <TransitionGroup>
                     {cardMask.map(item => (
                         <Fragment key={item.index}>
-                            <CSSTransition in={item.index >= cardNumber.split("").length} timeout={500} classNames="slide">
+                            <CSSTransition in={item.index >= cardNumber.length && !(Number.isNaN(parseInt(item.index)))} timeout={500} classNames="slide">
                                 <span>{item.content}</span>
                             </CSSTransition>
                         </Fragment>
