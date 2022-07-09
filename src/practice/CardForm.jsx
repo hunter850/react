@@ -14,7 +14,7 @@ function CardForm(props) {
     return (
         <Fragment>
             <form onSubmit={submitHandler} style={{ margin: "-50px" }}>
-                <div style={{ padding: "80px 26px 0px", width: "520px", margin: "auto", border: "1px solid black", borderRadius: "10px", backgroundColor: "#fff" }}>
+                <div style={{ padding: "80px 26px 30px", width: "520px", margin: "auto", border: "1px solid black", borderRadius: "10px", backgroundColor: "#fff" }}>
                     <label htmlFor="card_number" style={{ marginBottom: "9px", display: "inline-block", fontSize: "20px" }}>卡號</label>
                     <InputMask
                         mask='9999999999999999'
@@ -34,7 +34,7 @@ function CardForm(props) {
                         autoComplete="off"
                     />
                     <div className="form_bottom" style={{width: "100%", display: "flex"}}>
-                        <div className="card_valid" style={{ width: "70%", display: "flex", justifyContent: "center", alignItems: "center", marginBottom: "30px", paddingRight: "30px" }}>
+                        <div className="card_valid" style={{ width: "70%", display: "flex", justifyContent: "center", alignItems: "center", paddingRight: "30px" }}>
                             <div className="card_date" style={{ width: "66.66%", display: "flex", paddingRight: "10px" }}>
                                 <div className="card_month" style={{ width: "50%", paddingRight: "10px" }}>
                                     <label htmlFor="credit_card_month" style={{ width: "100%", fontSize: "20px", whiteSpace: "nowrap" }}>Valid Date</label>
@@ -73,7 +73,7 @@ function CardForm(props) {
                                 </div>
                             </div>
                             <div className="card_cvv" style={{ width: "33.33%" }}>
-                                <label htmlFor="cvv" style={{ width: "100%", fontSize: "20px" }}>cvv</label>
+                                <label htmlFor="cvv" style={{ width: "100%", fontSize: "20px" }}>CVV</label>
                                 <InputMask
                                     mask="9999"
                                     maskChar={""}
