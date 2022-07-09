@@ -40,7 +40,7 @@ function CardForm(props) {
                                     <label htmlFor="credit_card_month" style={{ width: "100%", fontSize: "20px", whiteSpace: "nowrap" }}>Valid Date</label>
                                     <select value={cardMonth} onChange={monthHandler} name="credit_card_month" id="credit_card_month" style={{ width: "100%", height: "36px", padding: "0px 9px" }}>
                                         <option value="" disabled>- 月份 -</option>
-                                        <option value="1">01</option>
+                                        <option value="01">01</option>
                                         <option value="02">02</option>
                                         <option value="03">03</option>
                                         <option value="04">04</option>
