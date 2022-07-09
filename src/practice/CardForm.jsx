@@ -2,7 +2,7 @@ import { Fragment } from "react"
 import InputMask from "react-input-mask"
 
 function CardForm(props) {
-    const { cardNumber, setCardNumber, cardName, setCardName, cardMonth, setCardMonth, cardYear, setCardYear, cardCvv, setCardCvv } = props;
+    const { cardNumber, setCardNumber, cardName, setCardName, cardMonth, setCardMonth, cardYear, setCardYear, cardCvv, setCardCvv, focusHandler, blurHandler } = props;
     // const handleInput = ({ target: { value } }) => setCardNumber(value.trim());
     const handleNumberInput = (event) => { setCardNumber(event.target.value.trim()) }
     const handleNameInput = (event) => { if (event.target.value.length < 100) setCardName(event.target.value) }
@@ -81,6 +81,8 @@ function CardForm(props) {
                                     style={{ width: "100%", height: "36px", padding: "0px 9px" }}
                                     value={cardCvv}
                                     onChange={cvvHandler}
+                                    onFocus={focusHandler}
+                                    onBlur={blurHandler}
                                 />
                             </div>
                         </div>
