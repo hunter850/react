@@ -69,7 +69,7 @@ function CardValidDate({ cardMonth, cardYear }) {
     }, [cardYear]);
 
     return (
-        <div>
+        <div className="card_valid_date">
             <SwitchTransition mode="out-in">
                 <CSSTransition
                     key={monthContent}
