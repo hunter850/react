@@ -190,3 +190,34 @@
     transform: translateY(-10px);
     display: inline-block;
 }
+.fade-enter {
+    opacity: 0;
+    display: inline-block;
+}
+
+.fade-enter-active {
+    opacity: 1;
+    transition: opacity 0.25s ease-in-out;
+    display: inline-block;
+}
+
+.fade-enter-done {
+    opacity: 1;
+    display: inline-block;
+}
+
+.fade-exit {
+    opacity: 1;
+    display: inline-block;
+}
+
+.fade-exit-active {
+    opacity: 0;
+    transition: opacity 0.25s ease-in-out;
+    display: inline-block;
+}
+
+.fade-exit-done {
+    opacity: 0;
+    display: inline-block;
+}
