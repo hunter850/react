@@ -1,4 +1,4 @@
-import { Fragment } from "react"
+import { Fragment, useMemo } from "react"
 import InputMask from "react-input-mask"
 
 function CardForm(props) {
@@ -11,13 +11,21 @@ function CardForm(props) {
     const cvvHandler = (event) => { setCardCvv(event.target.value) }
     const submitHandler = (event) => { event.preventDefault(); }
 
+    const numberMask = useMemo(() => {
+        if(cardNumber[0] === "3" && (cardNumber[1] === "4" || cardNumber[1] === "7")) {
+            return '999999999999999';
+        } else {
+            return '9999999999999999';
+        }
+    }, [cardNumber]);
+
     return (
         <Fragment>
             <form onSubmit={submitHandler} style={{ margin: "-50px" }}>
                 <div style={{ padding: "80px 26px 30px", width: "520px", margin: "auto", border: "1px solid black", borderRadius: "10px", backgroundColor: "#fff" }}>
                     <label htmlFor="card_number" style={{ marginBottom: "9px", display: "inline-block", fontSize: "20px" }}>卡號</label>
                     <InputMask
-                        mask='9999999999999999'
+                        mask={numberMask}
                         value={cardNumber}
                         onChange={handleNumberInput}
                         maskChar={""}
