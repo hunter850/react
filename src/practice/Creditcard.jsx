@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useCallback } from "react";
 import CardUpperImage from "./CardUpperImage";
 import CardNumberInput from "./CardNumberInput";
 import CardHolder from "./CardHolder";
@@ -85,12 +85,12 @@ function Creditcard(props) {
         return { ...cardContainterStyle, ...cardBackStyle };
     }, [cardContainterStyle, cardBackStyle]);
 
-    const focusHandler = () => {
+    const focusHandler = useCallback(() => {
         setFlipStyle((pre) => ({ ...pre, transform: "rotateY(180deg)" }));
-    };
-    const blurHandler = () => {
+    }, []);
+    const blurHandler = useCallback(() => {
         setFlipStyle((pre) => ({ ...pre, transform: "rotateY(0deg)" }));
-    };
+    }, []);
 
     return (
         <div style={creditCardWrapStyle}>

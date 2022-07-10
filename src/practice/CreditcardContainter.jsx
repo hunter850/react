@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment, useState, useCallback } from "react";
 import Creditcard from "./Creditcard";
 
 function CreditcarContainer() {
@@ -7,10 +7,10 @@ function CreditcarContainer() {
     const [cardMonth, setCardMonth] = useState("");
     const [cardYear, setCardYear] = useState("");
     const [cardCvv, setCardCvv] = useState("");
-    const cardSubmitHandler = (event) => {
+    const cardSubmitHandler = useCallback((event) => {
         console.log(event);
         event.preventDefault();
-    };
+    }, []);
 
     const fakeBodyStyle = {
         width: "100vw",
