@@ -20,7 +20,7 @@ function CardForm(props) {
 
     return (
         <Fragment>
-            <form onSubmit={cardSubmitHandler} style={{ margin: "-50px" }}>
+            <form onSubmit={cardSubmitHandler} style={{ marginTop: "-50px", width: "520px" }}>
                 <div style={{ padding: "80px 26px 30px", width: "520px", margin: "auto", border: "1px solid black", borderRadius: "10px", backgroundColor: "#fff" }}>
                     <label htmlFor="card_number" style={{ marginBottom: "9px", display: "inline-block", fontSize: "20px" }}>卡號</label>
                     <InputMask
