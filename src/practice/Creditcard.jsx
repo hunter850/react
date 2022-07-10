@@ -1,4 +1,4 @@
-import { Fragment, useState, useMemo } from "react";
+import { useState, useMemo } from "react";
 import CardUpperImage from "./CardUpperImage";
 import CardNumberInput from "./CardNumberInput";
 import CardHolder from "./CardHolder";
@@ -8,7 +8,12 @@ import CardWhiteBar from "./CardWhiteBar";
 import CardType from "./CardType";
 import CardForm from "./CardForm";
 
-function Creditcard() {
+function Creditcard(props) {
+    const {cardNumber, setCardNumber, cardName, setCardName, cardMonth, setCardMonth, cardYear, setCardYear, cardCvv, setCardCvv, cardSubmitHandler} = props;
+    const creditCardWrapStyle = {
+        width: "520px",
+        height: "550.76px"
+    }
     const cardFlipStyle = {
         width: "433px",
         height: "243.5625px",
@@ -59,11 +64,6 @@ function Creditcard() {
         paddingRight: "10px",
     };
 
-    const [cardNumber, setCardNumber] = useState("");
-    const [cardName, setCardName] = useState("");
-    const [cardMonth, setCardMonth] = useState("");
-    const [cardYear, setCardYear] = useState("");
-    const [cardCvv, setCardCvv] = useState("");
     const [flipStyle, setFlipStyle] = useState(cardFlipStyle);
     const cardContainerBackStyle = useMemo(() => {
         return { ...cardContainterStyle, ...cardBackStyle };
@@ -77,7 +77,7 @@ function Creditcard() {
     };
 
     return (
-        <Fragment>
+        <div style={creditCardWrapStyle}>
             <div style={flipStyle}>
                 <div className="card_container" style={cardContainterStyle}>
                     <CardUpperImage cardNumber={cardNumber} />
@@ -111,11 +111,12 @@ function Creditcard() {
                     setCardYear={setCardYear}
                     cardCvv={cardCvv}
                     setCardCvv={setCardCvv}
+                    cardSubmitHandler={cardSubmitHandler}
                     focusHandler={focusHandler}
                     blurHandler={blurHandler}
                 />
             </div>
-        </Fragment>
+        </div>
     );
 }
 
