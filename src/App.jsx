@@ -1,7 +1,7 @@
-import CreditcarContainer from "./practice/CreditcardContainter";
+import CheckProps from "./practice/52.CheckProps";
 
 function App() {
-    return <CreditcarContainer />;
+    return <CheckProps />;
 }
 
 export default App;
