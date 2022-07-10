@@ -55,6 +55,19 @@ function Creditcard(props) {
                 marginBottom: "5px",
                 paddingRight: "10px",
             },
+            cardFrame: {
+                borderRadius: "5px",
+                opacity: "0",
+                position: "absolute",
+                top: "0px",
+                left: "0px",
+                width: "100%",
+                height: "100%",
+                transition: "all 0.35s cubic-bezier(0.71, 0.03, 0.56, 0.85)",
+                overflow: "hidden",
+                border: "2px solid rgba(255, 255, 255, 0.65)",
+                zIndex: "3",
+            },
         };
     }, []);
     const cardContainterStyle = useMemo(() => {
@@ -83,6 +96,7 @@ function Creditcard(props) {
         return { ...cardContainterStyle, transform: "rotateY(180deg)" };
     }, [cardContainterStyle]);
     const [flipStyle, setFlipStyle] = useState(styles.cardFlipStyle);
+    const [frameStyle, setFrameStyle] = useState(styles.cardFrame);
 
     const focusHandler = useCallback(() => {
         setFlipStyle((pre) => ({ ...pre, transform: "rotateY(180deg)" }));
@@ -90,10 +104,41 @@ function Creditcard(props) {
     const blurHandler = useCallback(() => {
         setFlipStyle((pre) => ({ ...pre, transform: "rotateY(0deg)" }));
     }, []);
+    const cardFrameBlur = useCallback(() => {
+        setFrameStyle(styles.cardFrame);
+    }, [setFrameStyle, styles.cardFrame]);
+    const cardNumberFocus = useCallback(() => {
+        setFrameStyle((pre) => ({
+            ...pre,
+            transform: "translateX(30px) translateY(100px)",
+            width: "373px",
+            height: "60px",
+            opacity: "1",
+        }));
+    }, [setFrameStyle]);
+    const cardNameFocus = useCallback(() => {
+        setFrameStyle((pre) => ({
+            ...pre,
+            transform: "translateX(30px) translateY(163px)",
+            width: "265px",
+            height: "60px",
+            opacity: "1",
+        }));
+    }, [setFrameStyle]);
+    const cardValidFocus = useCallback(() => {
+        setFrameStyle((pre) => ({
+            ...pre,
+            transform: "translateX(300px) translateY(163px)",
+            width: "100px",
+            height: "60px",
+            opacity: "1",
+        }));
+    }, [setFrameStyle]);
 
     return (
         <div style={styles.creditCardWrapStyle}>
             <div style={flipStyle}>
+                <div style={frameStyle}></div>
                 <div className="card_container" style={cardContainterStyle}>
                     <CardUpperImage cardNumber={cardNumber} />
                     <CardNumberInput cardNumber={cardNumber} />
@@ -129,6 +174,10 @@ function Creditcard(props) {
                     cardSubmitHandler={cardSubmitHandler}
                     focusHandler={focusHandler}
                     blurHandler={blurHandler}
+                    cardFrameBlur={cardFrameBlur}
+                    cardNumberFocus={cardNumberFocus}
+                    cardNameFocus={cardNameFocus}
+                    cardValidFocus={cardValidFocus}
                 />
             </div>
         </div>
