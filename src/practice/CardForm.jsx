@@ -2,14 +2,13 @@ import { Fragment, useMemo } from "react"
 import InputMask from "react-input-mask"
 
 function CardForm(props) {
-    const { cardNumber, setCardNumber, cardName, setCardName, cardMonth, setCardMonth, cardYear, setCardYear, cardCvv, setCardCvv, focusHandler, blurHandler } = props;
-    // const handleInput = ({ target: { value } }) => setCardNumber(value.trim());
+    const { cardNumber, setCardNumber, cardName, setCardName, cardMonth, setCardMonth, cardYear, setCardYear, cardCvv, setCardCvv, cardSubmitHandler, focusHandler, blurHandler } = props;
+    
     const handleNumberInput = (event) => { setCardNumber(event.target.value.trim()) }
     const handleNameInput = (event) => { if (event.target.value.length < 100) setCardName(event.target.value) }
     const monthHandler = (event) => { setCardMonth(event.target.value) }
     const yearHandler = (event) => { setCardYear(event.target.value) }
     const cvvHandler = (event) => { setCardCvv(event.target.value) }
-    const submitHandler = (event) => { event.preventDefault(); }
 
     const numberMask = useMemo(() => {
         if(cardNumber[0] === "3" && (cardNumber[1] === "4" || cardNumber[1] === "7")) {
@@ -21,7 +20,7 @@ function CardForm(props) {
 
     return (
         <Fragment>
-            <form onSubmit={submitHandler} style={{ margin: "-50px" }}>
+            <form onSubmit={cardSubmitHandler} style={{ margin: "-50px" }}>
                 <div style={{ padding: "80px 26px 30px", width: "520px", margin: "auto", border: "1px solid black", borderRadius: "10px", backgroundColor: "#fff" }}>
                     <label htmlFor="card_number" style={{ marginBottom: "9px", display: "inline-block", fontSize: "20px" }}>卡號</label>
                     <InputMask
@@ -94,7 +93,7 @@ function CardForm(props) {
                                 />
                             </div>
                         </div>
-                        <button style={{ width: "30%", height: "36px", marginTop: "26.4px", border: "none", outline: "none", backgroundColor: "#253945", borderRadius: "3px", color: "#fff", cursor: "pointer" }}>確認送出</button>
+                        <button type="submit" style={{ width: "30%", height: "36px", marginTop: "26.4px", border: "none", outline: "none", backgroundColor: "#253945", borderRadius: "3px", color: "#fff", cursor: "pointer" }}>確認送出</button>
                     </div>
                 </div>
             </form>
