@@ -1,7 +1,17 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import Creditcard from "./Creditcard";
 
 function CreditcarContainer() {
+    const [cardNumber, setCardNumber] = useState("");
+    const [cardName, setCardName] = useState("");
+    const [cardMonth, setCardMonth] = useState("");
+    const [cardYear, setCardYear] = useState("");
+    const [cardCvv, setCardCvv] = useState("");
+    const cardSubmitHandler = (event) => {
+        console.log(event);
+        event.preventDefault();
+    };
+
     const fakeBodyStyle = {
         width: "100vw",
         height: "100vh",
@@ -20,7 +30,21 @@ function CreditcarContainer() {
             <div className="fake_body" style={fakeBodyStyle}>
                 <div style={fakeNav}>nav</div>
                 <div style={containter}>
-                    <Creditcard />
+                    <div style={{ width: "fit-content", margin: "auto" }}>
+                        <Creditcard
+                            cardNumber={cardNumber}
+                            setCardNumber={setCardNumber}
+                            cardName={cardName}
+                            setCardName={setCardName}
+                            cardMonth={cardMonth}
+                            setCardMonth={setCardMonth}
+                            cardYear={cardYear}
+                            setCardYear={setCardYear}
+                            cardCvv={cardCvv}
+                            setCardCvv={setCardCvv}
+                            cardSubmitHandler={cardSubmitHandler}
+                        />
+                    </div>
                 </div>
             </div>
         </Fragment>
