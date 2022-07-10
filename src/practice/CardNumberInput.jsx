@@ -1,22 +1,16 @@
 import { Fragment, useState, useEffect, useMemo } from "react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import useIndexArray from "./hooks/useIndexArray";
-import useLog from "./hooks/useLog"
 
 import "./css/cardNumberInput.css"
 
 function CardNumberInput({ cardNumber }) {
+    //算出是不是Americna Express
     const isShort = useMemo(() => {
         return (cardNumber[0] === "3" && (cardNumber[1] === "4" || cardNumber[1] === "7"));
     }, [cardNumber]);
-    const maxLength = useMemo(() => {
-        if(isShort) {
-            return 15;
-        } else {
-            return 16;
-        }
-    }, [isShort]);
-    const fakeArray = useIndexArray(maxLength);
+    const fakeArray = useIndexArray(16);
+    //生出maxLength長度的[{index: index, content: "#"}]
     const cardMask = useMemo(() => {
         const tempArray = JSON.parse(JSON.stringify(fakeArray));
         for(let i = 0; i < tempArray.length; i++) {
@@ -26,6 +20,7 @@ function CardNumberInput({ cardNumber }) {
     }, [fakeArray]);
     const [tempArray, setTempArray] = useState([]);
 
+    // 紀錄cardNumber離場動畫的數字
     useEffect(() => {
         setTempArray(pre => {
             pre.splice(0, cardNumber.length, ...cardNumber.split(""));
@@ -53,7 +48,7 @@ function CardNumberInput({ cardNumber }) {
                 <TransitionGroup>
                     {cardMask.map(item => (
                         <Fragment key={item.index}>
-                            <CSSTransition in={item.index >= cardNumber.length && !(Number.isNaN(parseInt(item.index)))} timeout={500} classNames="slide">
+                            <CSSTransition in={item.index >= cardNumber.length && (item.index !== 15 || !isShort)} timeout={500} classNames="slide">
                                 <span>{item.content}</span>
                             </CSSTransition>
                         </Fragment>
