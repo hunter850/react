@@ -1,10 +1,7 @@
 import CreditcarContainer from "./practice/CreditcardContainter";
-const App = () => {
-    const el = (
-        <CreditcarContainer />
-    )
 
-    return el;
+function App() {
+    return <CreditcarContainer />;
 }
 
-export default App
+export default App;
