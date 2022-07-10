@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment, useState, useMemo } from "react";
 import CardUpperImage from "./CardUpperImage";
 import CardNumberInput from "./CardNumberInput";
 import CardHolder from "./CardHolder";
@@ -36,7 +36,7 @@ function Creditcard() {
         boxShadow: "4px 4px 16px 0px rgba(0,0,0,.25)",
         transformStyle: "preserve-3d",
         transformOrigin: "center",
-        backfaceVisibility: "hidden"
+        backfaceVisibility: "hidden",
     };
     const cardBottomStyle = {
         display: "flex",
@@ -45,19 +45,19 @@ function Creditcard() {
         height: "32px",
     };
     const cardBackStyle = {
-        transform: "rotateY(180deg)"
-    }
+        transform: "rotateY(180deg)",
+    };
     const cvvWrapStyle = {
         width: "100%",
         height: "100%",
-        padding: "10px 0px"
-    }
+        padding: "10px 0px",
+    };
     const cvvText = {
         fontSize: "12px",
         textAlign: "end",
         marginBottom: "5px",
-        paddingRight: "10px"
-    }
+        paddingRight: "10px",
+    };
 
     const [cardNumber, setCardNumber] = useState("");
     const [cardName, setCardName] = useState("");
@@ -65,20 +65,20 @@ function Creditcard() {
     const [cardYear, setCardYear] = useState("");
     const [cardCvv, setCardCvv] = useState("");
     const [flipStyle, setFlipStyle] = useState(cardFlipStyle);
+    const cardContainerBackStyle = useMemo(() => {
+        return { ...cardContainterStyle, ...cardBackStyle };
+    }, [cardContainterStyle, cardBackStyle]);
 
-    const flipHandler = () => {
-        setFlipStyle(pre => ({...pre, transform: "rotateY(180deg)"}))
-    }
     const focusHandler = () => {
-        setFlipStyle(pre => ({...pre, transform: "rotateY(180deg)"}))
-    }
+        setFlipStyle((pre) => ({ ...pre, transform: "rotateY(180deg)" }));
+    };
     const blurHandler = () => {
-        setFlipStyle(pre => ({...pre, transform: "rotateY(0deg)"}))
-    }
+        setFlipStyle((pre) => ({ ...pre, transform: "rotateY(0deg)" }));
+    };
 
     return (
         <Fragment>
-            <div className="card_flip_wrap" style={flipStyle} onClick={flipHandler}>
+            <div style={flipStyle}>
                 <div className="card_container" style={cardContainterStyle}>
                     <CardUpperImage cardNumber={cardNumber} />
                     <CardNumberInput cardNumber={cardNumber} />
@@ -90,7 +90,7 @@ function Creditcard() {
                         />
                     </div>
                 </div>
-                <div className="card_container" style={{...cardContainterStyle, ...cardBackStyle}}>
+                <div className="card_container" style={cardContainerBackStyle}>
                     <CardBlackBar />
                     <div style={cvvWrapStyle}>
                         <p style={cvvText}>CVV</p>
