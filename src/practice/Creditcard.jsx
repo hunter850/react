@@ -22,20 +22,41 @@ function Creditcard(props) {
         setCardCvv,
         cardSubmitHandler,
     } = props;
-    const creditCardWrapStyle = {
-        width: "520px",
-        height: "550.76px",
-    };
-    const cardFlipStyle = {
-        width: "433px",
-        height: "243.5625px",
-        borderRadius: "10px",
-        margin: "auto",
-        position: "relative",
-        transformStyle: "preserve-3d",
-        transformOrigin: "center",
-        transition: "all 1s ease-out",
-    };
+    const styles = useMemo(() => {
+        return {
+            creditCardWrapStyle: {
+                width: "520px",
+                height: "550.76px",
+            },
+            cardFlipStyle: {
+                width: "433px",
+                height: "243.5625px",
+                borderRadius: "10px",
+                margin: "auto",
+                position: "relative",
+                transformStyle: "preserve-3d",
+                transformOrigin: "center",
+                transition: "all 1s ease-out",
+            },
+            cardBottomStyle: {
+                display: "flex",
+                justifyContent: "space-between",
+                width: "340.47px",
+                height: "32px",
+            },
+            cvvWrapStyle: {
+                width: "100%",
+                height: "100%",
+                padding: "10px 0px",
+            },
+            cvvText: {
+                fontSize: "12px",
+                textAlign: "end",
+                marginBottom: "5px",
+                paddingRight: "10px",
+            },
+        };
+    }, []);
     const cardContainterStyle = useMemo(() => {
         return {
             width: "433px",
@@ -57,33 +78,11 @@ function Creditcard(props) {
             backfaceVisibility: "hidden",
         };
     }, []);
-    const cardBottomStyle = {
-        display: "flex",
-        justifyContent: "space-between",
-        width: "340.47px",
-        height: "32px",
-    };
-    const cardBackStyle = useMemo(() => {
-        return {
-            transform: "rotateY(180deg)",
-        };
-    }, []);
-    const cvvWrapStyle = {
-        width: "100%",
-        height: "100%",
-        padding: "10px 0px",
-    };
-    const cvvText = {
-        fontSize: "12px",
-        textAlign: "end",
-        marginBottom: "5px",
-        paddingRight: "10px",
-    };
 
-    const [flipStyle, setFlipStyle] = useState(cardFlipStyle);
     const cardContainerBackStyle = useMemo(() => {
-        return { ...cardContainterStyle, ...cardBackStyle };
-    }, [cardContainterStyle, cardBackStyle]);
+        return { ...cardContainterStyle, transform: "rotateY(180deg)" };
+    }, [cardContainterStyle]);
+    const [flipStyle, setFlipStyle] = useState(styles.cardFlipStyle);
 
     const focusHandler = useCallback(() => {
         setFlipStyle((pre) => ({ ...pre, transform: "rotateY(180deg)" }));
@@ -93,12 +92,12 @@ function Creditcard(props) {
     }, []);
 
     return (
-        <div style={creditCardWrapStyle}>
+        <div style={styles.creditCardWrapStyle}>
             <div style={flipStyle}>
                 <div className="card_container" style={cardContainterStyle}>
                     <CardUpperImage cardNumber={cardNumber} />
                     <CardNumberInput cardNumber={cardNumber} />
-                    <div className="card_bottom" style={cardBottomStyle}>
+                    <div className="card_bottom" style={styles.cardBottomStyle}>
                         <CardHolder cardName={cardName} />
                         <CardValidDate
                             cardMonth={cardMonth}
@@ -108,8 +107,8 @@ function Creditcard(props) {
                 </div>
                 <div className="card_container" style={cardContainerBackStyle}>
                     <CardBlackBar />
-                    <div style={cvvWrapStyle}>
-                        <p style={cvvText}>CVV</p>
+                    <div style={styles.cvvWrapStyle}>
+                        <p style={styles.cvvText}>CVV</p>
                         <CardWhiteBar cardCvv={cardCvv} />
                         <CardType cardNumber={cardNumber} />
                     </div>
