@@ -55,7 +55,7 @@ const Modal = ({
     const [modalBord, setModalBord] = useState(styles.bordStyle);
     const closeHandler = useCallback(() => {
         setIsOpen(false);
-    }, []);
+    }, [setIsOpen]);
     useEffect(() => {
         if (isOpen) {
             setModalBackground((pre) => ({ ...pre, display: "flex" }));
@@ -79,7 +79,7 @@ const Modal = ({
                 opacity: 0,
             }));
         }
-    }, [isOpen]);
+    }, [isOpen, bordY, setNow]);
     const el = (
         <div style={modalBackground} onClick={closeHandler}>
             <div style={modalBord} onClick={(e) => e.stopPropagation()}>
