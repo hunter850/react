@@ -1,11 +1,13 @@
 import { Fragment, useMemo } from "react";
 
-function CardWhiteBar({cardCvv}) {
-
+function CardWhiteBar({ cardCvv }) {
     const textContent = useMemo(() => {
-        return cardCvv.split("").map(() => "*").join("");
+        return cardCvv
+            .split("")
+            .map(() => "*")
+            .join("");
     }, [cardCvv]);
-    
+
     const whiteBarStyle = {
         width: "100%",
         height: "45px",
@@ -16,8 +18,8 @@ function CardWhiteBar({cardCvv}) {
         fontSize: "18px",
         lineHeight: "45px",
         paddingRight: "10px",
-        marginBottom: "20px"
-    }
+        marginBottom: "20px",
+    };
 
     return (
         <Fragment>

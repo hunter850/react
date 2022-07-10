@@ -9,11 +9,23 @@ import CardType from "./CardType";
 import CardForm from "./CardForm";
 
 function Creditcard(props) {
-    const {cardNumber, setCardNumber, cardName, setCardName, cardMonth, setCardMonth, cardYear, setCardYear, cardCvv, setCardCvv, cardSubmitHandler} = props;
+    const {
+        cardNumber,
+        setCardNumber,
+        cardName,
+        setCardName,
+        cardMonth,
+        setCardMonth,
+        cardYear,
+        setCardYear,
+        cardCvv,
+        setCardCvv,
+        cardSubmitHandler,
+    } = props;
     const creditCardWrapStyle = {
         width: "520px",
-        height: "550.76px"
-    }
+        height: "550.76px",
+    };
     const cardFlipStyle = {
         width: "433px",
         height: "243.5625px",
@@ -24,34 +36,38 @@ function Creditcard(props) {
         transformOrigin: "center",
         transition: "all 1s ease-out",
     };
-    const cardContainterStyle = {
-        width: "433px",
-        height: "243.5625px",
-        borderRadius: "10px",
-        backgroundColor: "skyblue",
-        position: "absolute",
-        top: "0px",
-        left: "0px",
-        zIndex: "1",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-between",
-        alignItems: "center",
-        padding: "25px 15px",
-        boxShadow: "4px 4px 16px 0px rgba(0,0,0,.25)",
-        transformStyle: "preserve-3d",
-        transformOrigin: "center",
-        backfaceVisibility: "hidden",
-    };
+    const cardContainterStyle = useMemo(() => {
+        return {
+            width: "433px",
+            height: "243.5625px",
+            borderRadius: "10px",
+            backgroundColor: "skyblue",
+            position: "absolute",
+            top: "0px",
+            left: "0px",
+            zIndex: "1",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
+            alignItems: "center",
+            padding: "25px 15px",
+            boxShadow: "4px 4px 16px 0px rgba(0,0,0,.25)",
+            transformStyle: "preserve-3d",
+            transformOrigin: "center",
+            backfaceVisibility: "hidden",
+        };
+    }, []);
     const cardBottomStyle = {
         display: "flex",
         justifyContent: "space-between",
         width: "340.47px",
         height: "32px",
     };
-    const cardBackStyle = {
-        transform: "rotateY(180deg)",
-    };
+    const cardBackStyle = useMemo(() => {
+        return {
+            transform: "rotateY(180deg)",
+        };
+    }, []);
     const cvvWrapStyle = {
         width: "100%",
         height: "100%",

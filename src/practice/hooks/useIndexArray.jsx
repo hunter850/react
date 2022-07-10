@@ -13,7 +13,7 @@ const useIndexArray = (num, ...items) => {
             tempArray.push(tempObj);
         }
         return tempArray;
-    }, [num, ...items]);
+    }, [num, items]);
     return output;
 }
 

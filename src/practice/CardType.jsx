@@ -15,9 +15,9 @@ function CardType({ cardNumber }) {
     const imageSrc = useMemo(() => {
         switch (cardNumber[0]) {
             case "3":
-                if(cardNumber[1] === "5") {
+                if (cardNumber[1] === "5") {
                     return "https://upload.wikimedia.org/wikipedia/commons/4/40/JCB_logo.svg";
-                } else if(cardNumber[1] === "4" || cardNumber[1] === "7"){
+                } else if (cardNumber[1] === "4" || cardNumber[1] === "7") {
                     return "https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/amex.png";
                 } else {
                     return "https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/visa.png";

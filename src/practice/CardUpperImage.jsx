@@ -2,7 +2,7 @@ import { Fragment } from "react";
 import Chip from "./Chip";
 import CardType from "./CardType";
 
-function CardUpperImage({cardNumber}) {
+function CardUpperImage({ cardNumber }) {
     const cardUpperContainerStyle = {
         display: "flex",
         justifyContent: "space-between",
