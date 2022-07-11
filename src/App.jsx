@@ -1,7 +1,6 @@
-import TryStyledComponent from "./practice/55.TryStyledComponent";
-
+import TryFramerMotion from "./practice/56.TryFramerMotion";
 function App() {
-    return <TryStyledComponent />;
+    return <TryFramerMotion />;
 }
 
 export default App;
