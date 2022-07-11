@@ -22,9 +22,12 @@ const MyText = styled.h1`
 `;
 function TryStyledComponent() {
     const [inputValue, setInputValue] = useState("");
-    const inputHandler = useCallback((event) => {
-        setInputValue(event.target.value);
-    }, [setInputValue]);
+    const inputHandler = useCallback(
+        (event) => {
+            setInputValue(event.target.value);
+        },
+        [setInputValue]
+    );
     return (
         <Fragment>
             <MyButton
