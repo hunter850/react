@@ -1,7 +1,7 @@
-import TryMemoCount from "./practice/54.TryMemoCount";
+import TryStyledComponent from "./55.TryStyledComponent";
 
 function App() {
-    return <TryMemoCount />;
+    return <TryStyledComponent />;
 }
 
 export default App;
