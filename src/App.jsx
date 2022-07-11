@@ -1,7 +1,7 @@
-import TryRWD from "./practice/53.TryRWD";
+import TryMemoCount from "./practice/54.TryMemoCount";
 
 function App() {
-    return <TryRWD />;
+    return <TryMemoCount />;
 }
 
 export default App;
