@@ -1,7 +1,7 @@
-import CheckProps from "./practice/52.CheckProps";
+import TryRWD from "./practice/53.TryRWD";
 
 function App() {
-    return <CheckProps />;
+    return <TryRWD />;
 }
 
 export default App;
