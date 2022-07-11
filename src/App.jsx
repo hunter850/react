@@ -1,4 +1,4 @@
-import TryStyledComponent from "./55.TryStyledComponent";
+import TryStyledComponent from "./practice/55.TryStyledComponent";
 
 function App() {
     return <TryStyledComponent />;
