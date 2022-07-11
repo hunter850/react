@@ -1,4 +1,4 @@
-import { Fragment, useState, useMemo, useEffect } from "react";
+import { Fragment, useState, useMemo, useEffect, useCallback } from "react";
 import "./css/reset.css";
 
 function TryRWD() {
@@ -53,17 +53,17 @@ function TryRWD() {
             setBreakPoint(1);
         }
     }, []);
-    useEffect(() => {
-        function resizeHandler() {
-            if (window.innerWidth > 768) {
-                setBreakPoint(0);
-            } else {
-                setBreakPoint(1);
-            }
+    const resizeHandler = useCallback(() => {
+        if (window.innerWidth > 768) {
+            setBreakPoint(0);
+        } else {
+            setBreakPoint(1);
         }
+    }, []);
+    useEffect(() => {
         window.addEventListener("resize", resizeHandler);
         return () => window.removeEventListener("resize", resizeHandler);
-    }, []);
+    }, [resizeHandler]);
     return (
         <Fragment>
             <div style={styles.container}>
