@@ -1,6 +1,6 @@
-import TryFramerMotion from "./practice/56.TryFramerMotion";
+import FramerInitial from "./practice/57.FramerInitial";
 function App() {
-    return <TryFramerMotion />;
+    return <FramerInitial />;
 }
 
 export default App;

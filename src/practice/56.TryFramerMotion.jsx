@@ -29,7 +29,7 @@ function TryFramerMotion() {
             <motion.div animate={animation} style={styles.box} />
             <motion.div
                 initial="hidden"
-                animate={isShow ? "visible" : ""}
+                animate={isShow ? "visible" : "hidden"}
                 variants={variants}
                 style={styles.box}
             />
