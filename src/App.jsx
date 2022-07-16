@@ -1,6 +1,6 @@
-import CustomContext from "./practice/57.CustomContext";
+import Framer01 from "./practice/58.Framer01";
 function App() {
-    return <CustomContext />;
+    return <Framer01 />;
 }
 
 export default App;
