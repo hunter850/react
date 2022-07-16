@@ -1,6 +1,6 @@
-import Framer01 from "./practice/58.Framer01";
+import Framer02 from "./practice/59.Framer02";
 function App() {
-    return <Framer01 />;
+    return <Framer02 />;
 }
 
 export default App;
