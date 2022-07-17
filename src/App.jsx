@@ -1,6 +1,6 @@
-import Framer02 from "./practice/59.Framer02";
+import TrySwiper from "./practice/60.TrySwiper";
 function App() {
-    return <Framer02 />;
+    return <TrySwiper />;
 }
 
 export default App;
