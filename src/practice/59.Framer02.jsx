@@ -41,7 +41,9 @@ function Framer02() {
                     }}
                     ref={motionRef}
                     animate={{ x: motionInView ? 400 : 0 }}
-                >this is box</motion.div>
+                >
+                    this is box
+                </motion.div>
                 <p>
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                     Excepturi, quos?
