@@ -15,6 +15,7 @@ const useIsIn = (ref, num = 0) => {
                 setIsIn(false);
             }
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     useEffect(() => {
         function check() {

@@ -24,6 +24,7 @@ const useIsInRestore = (ref, num = 0) => {
                 setIsOut(true);
             }
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     useEffect(() => {
         function checkIsOut() {
@@ -50,7 +51,7 @@ const useIsInRestore = (ref, num = 0) => {
                 ) {
                     setIsIn(true);
                 } else {
-                    if(isOut) {
+                    if (isOut) {
                         setIsIn(false);
                     }
                 }
