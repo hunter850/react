@@ -1,6 +1,6 @@
-import TrySwiper from "./practice/60.TrySwiper";
+import Test from "./practice/Test";
 function App() {
-    return <TrySwiper />;
+    return <Test />;
 }
 
 export default App;
