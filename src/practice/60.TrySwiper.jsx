@@ -67,10 +67,10 @@ function TrySwiper() {
             // 額外的模組 除了寫在inline還需要在上方import才能用
             modules={[
                 EffectCube,
-                // EffectFade,
-                // EffectFlip,
-                // EffectCoverflow,
-                // EffectCards,
+                EffectFade,
+                EffectFlip,
+                EffectCoverflow,
+                EffectCards,
                 Autoplay,
                 Pagination,
                 Navigation,
