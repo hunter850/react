@@ -1,6 +1,6 @@
-import CustomContext from "./practice/57.CustomContext";
+import Test from "./practice/Test";
 function App() {
-    return <CustomContext />;
+    return <Test />;
 }
 
 export default App;
