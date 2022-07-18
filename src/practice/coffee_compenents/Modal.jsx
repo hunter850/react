@@ -2,16 +2,11 @@ import { useEffect, useState, useMemo, useCallback } from "react";
 import useSetNow from "../hooks/useSetNow";
 import useScrollbar from "../hooks/useScrollbar";
 import ModalBody from "./components/ModalBody";
+import ModalHeader from "./components/ModalHeader";
+import ModalFooter from "./components/ModalFooter";
 import "./modal.css";
 
-function Modal({
-    children,
-    isOpen,
-    setIsOpen,
-    bordPadding = "24px 36px",
-    bordY = -30,
-    time = 0.5,
-}) {
+function Modal({ children, isOpen, setIsOpen, bordY = -30, time = 0.5 }) {
     const setNow = useSetNow();
     const [hideScrollbar, showScrollbar] = useScrollbar();
     const styles = useMemo(() => {
@@ -35,21 +30,17 @@ function Modal({
                 maxHeight: "calc(90vh - 60px)",
                 overflow: "hidden",
                 backgroundColor: "#fff",
-                padding: bordPadding,
                 borderRadius: "10px",
+                display: "flex",
+                flexDirection: "column",
                 transform: `translateY(${bordY}px)`,
                 opacity: 0,
-                transition: `transform ${time + 0.2}s ease, opacity ${
-                    time + 0.2
-                }s ease`,
-            },
-            textWrap: {
-                width: "100%",
-                maxHeight: "calc(90vh - 132px)",
-                overflow: "auto",
+                transition: `
+                    transform ${time + 0.2}s ease, opacity ${time + 0.2}s ease
+                `,
             },
         };
-    }, [bordPadding, bordY, time]);
+    }, [bordY, time]);
     const staticStyles = useMemo(() => {
         return {
             button: {
@@ -62,11 +53,6 @@ function Modal({
                 position: "absolute",
                 right: "0px",
                 top: "0px",
-            },
-            text: {
-                width: "100%",
-                maxHeight: "calc(90vh - 132px)",
-                overflow: "auto",
             },
         };
     }, []);
@@ -118,9 +104,7 @@ function Modal({
                         />
                     </svg>
                 </button>
-                <div style={staticStyles.textWrap} className="modal_text">
-                    {children}
-                </div>
+                {children}
             </div>
         </div>
     );
@@ -128,4 +112,6 @@ function Modal({
 
 export default Object.assign(Modal, {
     Body: ModalBody,
+    Header: ModalHeader,
+    Footer: ModalFooter,
 });
