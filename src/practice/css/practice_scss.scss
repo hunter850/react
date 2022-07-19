@@ -1,0 +1,90 @@
+// @mixin = @include可以寫函式 編譯後會把include的mixin 包在{}內
+// % - @extend 不可以寫成函式 但編譯後會把重複邏輯的並排
+@mixin button-reset {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding: 0px;
+}
+
+@mixin basic-space($m, $p) {
+    margin: $m;
+    padding: $p;
+}
+
+%custom {
+    border: 1px solid red;
+    border-radius: 10px;
+}
+
+%pad {
+    padding: 0px 20px;
+}
+
+.btn {
+    @include button-reset;
+    text-align: center;
+    padding: 3px (60px / 3 - 2 * 9 + 10);
+    svg {
+        color: red;
+    }
+    span {
+        @extend .btn;
+    }
+}
+
+.box {
+    @include basic-space(10px 20px, 3px 6px);
+}
+
+.wrap {
+    @extend %custom;
+    @extend %pad;
+    border: 2px solid black;
+    .hello {
+        color: green;
+        @extend .wrap;
+    }
+}
+
+.b1 {
+    @extend %custom;
+}
+
+// 會轉換成下列
+// .b1,
+// .wrap,
+// .wrap .hello {
+//     border: 1px solid red;
+//     border-radius: 10px;
+// }
+
+// .wrap,
+// .wrap .hello {
+//     padding: 0px 20px;
+// }
+
+// .btn,
+// .btn span {
+//     background-color: transparent;
+//     border: none;
+//     outline: none;
+//     padding: 0px;
+//     text-align: center;
+//     padding: 3px 12px;
+// }
+// .btn svg {
+//     color: red;
+// }
+// .box {
+//     margin: 10px 20px;
+//     padding: 3px 6px;
+// }
+
+// .wrap,
+// .wrap .hello {
+//     border: 2px solid black;
+// }
+// .wrap .hello {
+//     color: green;
+// }
