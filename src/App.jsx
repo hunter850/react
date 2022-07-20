@@ -1,6 +1,6 @@
-import Test from "./practice/Test";
+import TryReactNumberFormat from "./practice/61.TryReactNumberFormat";
 function App() {
-    return <Test />;
+    return <TryReactNumberFormat />;
 }
 
 export default App;
