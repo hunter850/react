@@ -1,0 +1,37 @@
+.box {
+    width: 400px;
+    height: 400px;
+    background-color: red;
+    font-size: 60px;
+    .text {
+        color: white;
+    }
+}
+.black_wrap {
+    background-color: #000;
+    p {
+        color: white;
+    }
+}
+.text_pink {
+    color: pink;
+}
+.text_60 {
+    font-size: 60px;
+}
+.bg_dark {
+    background-color: #000;
+}
+
+.test-hello {
+    color: green;
+}
+
+@mixin basic_space($p, $m){
+    padding: $p;
+    margin: $m;
+}
+
+.try_mixin {
+    @include basic_space(10px 10px, 5px 5px);
+}

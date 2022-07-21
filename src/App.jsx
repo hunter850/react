@@ -1,6 +1,6 @@
-import TryReactNumberFormat from "./practice/61.TryReactNumberFormat";
+import TryCssModule from "./practice/62.TryCssModule";
 function App() {
-    return <TryReactNumberFormat />;
+    return <TryCssModule />;
 }
 
 export default App;
