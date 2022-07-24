@@ -1,9 +1,9 @@
-import TryContextCounter from "./practice/64.TryContextCounter";
+import TryContextReducer from "./practice/63.TryContextReducer";
 import StateProvider from "./practice/contexts/StateProvider";
 function App() {
     return (
         <StateProvider>
-            <TryContextCounter />
+            <TryContextReducer />
         </StateProvider>
     );
 }

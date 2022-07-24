@@ -3,9 +3,10 @@ import { useControlData } from "./contexts/StateProvider";
 import useData from "./hooks/useData";
 import useLog from "./hooks/useLog";
 import ContextReducerChild from "./components/63.ContextReducerChild";
-
+const dataArray = ["Frank", "Alex", "John"];
 function TryContextReducer() {
     const [state, dispatch] = useControlData();
+    useLog(state);
     const [age, setAge, deleteAge] = useData("age");
     const addHandler = useCallback(() => {
         dispatch({ name: "name", data: "Frank" });
@@ -14,15 +15,15 @@ function TryContextReducer() {
         dispatch({ name: "name", data: "Alex" });
     }, []);
     const updateArrayHandler = useCallback(() => {
-        dispatch({ name: "persons", data: ["Frank", "Alex", "John"] });
+        dispatch({ name: "persons", data: dataArray });
     }, []);
     const pushAmyHandler = useCallback(() => {
-        dispatch({ name: "persons", data: [...state.persons, "Amy"]});
+        dispatch({ name: "persons", data: [...state.persons, "Amy"] });
     }, [state]);
     const deleteArrayHandler = useCallback(() => {
         dispatch({ type: "DELETE", name: "persons" });
     }, []);
-    useLog(age);
+    // useLog(age);
     return (
         <Fragment>
             <button onClick={addHandler}>add name Frank</button>
