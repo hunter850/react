@@ -1,10 +1,10 @@
-import TryContextReducer from "./practice/63.TryContextReducer";
-import StateProvider from "./practice/contexts/StateProvider";
+import TryHOC from "./practice/65.TryHOC";
+// import StateProvider from "./practice/contexts/StateProvider";
 function App() {
     return (
-        <StateProvider>
-            <TryContextReducer />
-        </StateProvider>
+        <TryHOC />
+        // <StateProvider>
+        // </StateProvider>
     );
 }
 
