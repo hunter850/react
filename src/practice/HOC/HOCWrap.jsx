@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { Fragment, useContext } from "react";
 import HOCFunction from "./HOCFunction";
 import reducer from "./HOCReducer";
 import { initData } from "./initData";
@@ -8,4 +8,15 @@ export function useWrapData() {
     return useContext(StateContext);
 }
 
-export default HOCFunction(StateContext, reducer, initData);
+const ContextWrap = HOCFunction(StateContext, reducer, initData);
+
+function StateWrap(props) {
+    const { children } = props;
+    return (
+        <ContextWrap>
+            {children}
+        </ContextWrap>
+    )
+}
+
+export default StateWrap;

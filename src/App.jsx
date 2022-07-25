@@ -1,8 +1,8 @@
-import TryHOC from "./practice/65.TryHOC";
+import TryDux from "./practice/65.TryDux";
 // import StateProvider from "./practice/contexts/StateProvider";
 function App() {
     return (
-        <TryHOC />
+        <TryDux />
         // <StateProvider>
         // </StateProvider>
     );
