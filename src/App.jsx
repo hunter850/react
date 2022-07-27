@@ -1,12 +1,12 @@
 import store from "./app/store";
 import { Provider } from "react-redux";
-import Test from "./practice/Test";
+import TryRedux from "./practice/66.TryRedux.jsx";
 import StateProvider from "./practice/contexts/StateProvider";
 function App() {
     return (
         <Provider store={store}>
             <StateProvider>
-                <Test />
+                <TryRedux />
             </StateProvider>
         </Provider>
     );
