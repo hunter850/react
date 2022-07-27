@@ -24,6 +24,7 @@
     "react-dom": "^18.0.0",
     "react-input-mask": "^2.0.4",
     "react-number-format": "^4.9.3",
+    "react-redux": "^8.0.2",
     "react-transition-group": "^4.4.2",
     "redux": "^4.2.0",
     "sass": "^1.53.0",
