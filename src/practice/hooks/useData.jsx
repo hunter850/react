@@ -4,15 +4,19 @@ import { useControlData } from "../contexts/StateProvider";
 function useData(dataName) {
     const [state, dispatch] = useControlData();
     const changeDataSetter = useCallback((updateData) => {
+        if(typeof updateData === "function") {
+            dispatch({type: "PRE", name: dataName, data: updateData})
+            return;
+        }
         dispatch({name: dataName, data: updateData})
     }, []);
-    const deleteData = useCallback(() => {
-        dispatch({type: "DELETE", name: dataName});
+    const resetData = useCallback(() => {
+        dispatch({type: "RESET", name: dataName});
     }, []);
     if (dataName === undefined) {
         return [state, dispatch];
     }
-    return [state[dataName], changeDataSetter, deleteData];
+    return [state[dataName], changeDataSetter, resetData];
 }
 
 export default useData;

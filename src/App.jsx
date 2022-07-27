@@ -1,10 +1,10 @@
-import TryHOC from "./practice/65.TryHOC";
-// import StateProvider from "./practice/contexts/StateProvider";
+import Test from "./practice/Test";
+import StateProvider from "./practice/contexts/StateProvider";
 function App() {
     return (
-        <TryHOC />
-        // <StateProvider>
-        // </StateProvider>
+        <StateProvider>
+            <Test />
+        </StateProvider>
     );
 }
 
