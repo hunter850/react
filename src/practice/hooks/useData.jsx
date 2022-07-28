@@ -9,10 +9,10 @@ function useData(dataName) {
             return;
         }
         dispatch({name: dataName, data: updateData})
-    }, []);
+    }, [dataName, dispatch]);
     const resetData = useCallback(() => {
         dispatch({type: "RESET", name: dataName});
-    }, []);
+    }, [dataName, dispatch]);
     if (dataName === undefined) {
         return [state, dispatch];
     }
